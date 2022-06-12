@@ -1,7 +1,8 @@
 # t5-advertisements
 
 
-```set sv_messages 1
+```
+set sv_messages 1
 set sv_messagesdelay 35
 set sv_message1 "^1Message 1"
 set sv_message2 "^2Message 1"
