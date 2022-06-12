@@ -14,4 +14,5 @@ set sv_messagerestart 0
 set sv_welcome 1
 set sv_welcomemessage1 "^1Welcome 1"
 set sv_welcomemessage2 "^2Welcome 1"
-set sv_welcomemessage3 "^3Welcome 1"```
+set sv_welcomemessage3 "^3Welcome 1"
+```
