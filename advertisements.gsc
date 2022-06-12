@@ -51,41 +51,41 @@ messages()
 {
 	first_message = true;
     
-	if (getdvar("sv_messagesdelay") == "")
-		setdvar("sv_messagesdelay", "20");
+	if (getDvar("sv_messagesdelay") == "")
+		setDvar("sv_messagesdelay", "20");
 
 	generic_delay = 20;
 
-	if (getdvar("sv_maxmessages") == "")
-		setdvar("sv_maxmessages" , 20);
+	if (getDvar("sv_maxmessages") == "")
+		setDvar("sv_maxmessages" , 20);
     
 	message_start = game["mc_current_msg"];
 	
 	while (1) {
-		max = getdvarint("sv_maxmessages") + 1;
+		max = getDvarInt("sv_maxmessages") + 1;
 
 		for (i = message_start; i < max; i++) {
 			game["sv_current_msg"] = i;
 			
-			if (getdvar("sv_message" + i) == "") {
+			if (getDvar("sv_message" + i) == "") {
 				wait 0.05;
 				continue;
 			} else {
-				message = getdvar("sv_message" + i);
+				message = getDvar("sv_message" + i);
 
-				if (getdvar("sv_messagesdelay" + i) == "") {
-					if (generic_delay != getdvarint("sv_messagesdelay")) {
-						generic_delay = getdvarint("sv_messagesdelay");
+				if (getDvar("sv_messagesdelay" + i) == "") {
+					if (generic_delay != getDvarInt("sv_messagesdelay")) {
+						generic_delay = getDvarInt("sv_messagesdelay");
                         
 						if (generic_delay < 5) {
-							setdvar("sv_messagesdelay" , 5);
+							setDvar("sv_messagesdelay" , 5);
 							generic_delay = 5;
 						}
 					}
 
 					delay = generic_delay;
 				} else {
-					delay = getdvarint("sv_messagesdelay" + i);
+					delay = getDvarInt("sv_messagesdelay" + i);
 
 					if (delay < 0)
 						delay = 0;
@@ -108,9 +108,9 @@ messages()
 		message_start = 1;
 		game["mc_current_msg"] = 1;
 
-		loopdelay = getdvarint("sv_messagesdelay");
+		loopdelay = getDvarInt("sv_messagesdelay");
 		if (loopdelay < 5) {
-			setdvar("sv_messagesdelay" , 5);
+			setDvar("sv_messagesdelay" , 5);
 			loopdelay = 5;
 		}
 		wait loopdelay;
