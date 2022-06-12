@@ -4,7 +4,6 @@
 
 init()
 {
-   
 	if (!isDefined(game["mc_current_msg"]))
 		game["mc_current_msg"] = 1;
 		       
