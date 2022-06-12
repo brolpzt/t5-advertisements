@@ -1,6 +1,6 @@
 ## Installation
 
-Put advertisements.gsc in %localappdata%/Plutonium/storage/<t5>/scripts/<mp|sp> and add these lines in your dedicated.cfg
+Put advertisements.gsc in ```%localappdata%/Plutonium/storage/<t5>/scripts/<mp|sp>``` and add these lines below in your dedicated.cfg
 
 ```
 set sv_messages 1
