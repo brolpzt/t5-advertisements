@@ -38,7 +38,7 @@ welcome()
 
 	wait 0.05;
 
-	for (i=1; i<4; i++)
+	for (i = 1; i < 4; i++)
 	{	
 		message = getDvar("sv_welcomemessage" + i);
 		self iprintlnbold(message);
@@ -53,21 +53,26 @@ messages()
     
 	if (getdvar("sv_messagesdelay") == "")
 		setdvar("sv_messagesdelay", "20");
+
 	generic_delay = 20;
 
 	if (getdvar("sv_maxmessages") == "")
 		setdvar("sv_maxmessages" , 20);
     
 	message_start = game["mc_current_msg"];
+	
 	while (1) {
 		max = getdvarint("sv_maxmessages") + 1;
+
 		for (i = message_start; i < max; i++) {
 			game["sv_current_msg"] = i;
+			
 			if (getdvar("sv_message" + i) == "") {
 				wait 0.05;
 				continue;
 			} else {
 				message = getdvar("sv_message" + i);
+
 				if (getdvar("sv_messagesdelay" + i) == "") {
 					if (generic_delay != getdvarint("sv_messagesdelay")) {
 						generic_delay = getdvarint("sv_messagesdelay");
@@ -77,9 +82,11 @@ messages()
 							generic_delay = 5;
 						}
 					}
+
 					delay = generic_delay;
 				} else {
 					delay = getdvarint("sv_messagesdelay" + i);
+
 					if (delay < 0)
 						delay = 0;
 				}
@@ -102,8 +109,7 @@ messages()
 		game["mc_current_msg"] = 1;
 
 		loopdelay = getdvarint("sv_messagesdelay");
-		if (loopdelay < 5)
-		{
+		if (loopdelay < 5) {
 			setdvar("sv_messagesdelay" , 5);
 			loopdelay = 5;
 		}
